@@ -1,2 +1,3 @@
+Olena Salnikova
 # olena-salnikova-mars
 Portfolio project for Intro to Programming course with Code the Dream
