@@ -1,14 +1,17 @@
+/* ===== HTML / SMOOTH SCROLLING ===== */
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 100px;
 }
 
+/* ===== RESPONSIVE HTML / SCROLL PADDING FOR TABLETS AND MOBILE ===== */
 @media screen and (max-width: 1023px) {
     html {
-        scroll-padding-top: 330px;
+        scroll-padding-top: 300px;
     }
 }
 
+/* ===== BODY / MAIN PAGE STYLES ===== */
 body {
     width: 80%;
     font-family: Arial, sans-serif;
@@ -18,7 +21,16 @@ body {
     background-color: #f4f4f4;
 }
 
-/* Header styles */
+/* ===== RESPONSIVE BODY / MAIN PAGE STYLES FOR TABLETS AND MOBILE ===== */
+@media screen and (max-width: 1023px) {
+    body {
+        width: 100%;
+        line-height: 1.2;
+        margin: 0;
+    }
+}
+
+/* ===== HEADER / HEADER AND LOGO SECTION ===== */
 header {
     display: flex;
     align-items: center;
@@ -42,7 +54,7 @@ header {
     margin-right: 10px;
 }
 
-/* Navigation styles */
+/* ===== NAVIGATION / NAVIGATION MENU ===== */
 nav ul {
     list-style: none;
     margin: 0;
@@ -71,12 +83,112 @@ a.active {
     color: #034fc0;
 }
 
+/* ===== HAMBURGER MENU CHECKBOX / HIDDEN CHECKBOX FOR BURGER TOGGLE ===== */
+#menu-toggle {
+    display: none;
+}
+
+/* ===== HAMBURGER BUTTON / BURGER ICON ===== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #022b60;
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+/* ===== RESPONSIVE HEADER WITH HAMBURGER / TABLET LAYOUT (max-width: 1023px) ===== */
 @media screen and (max-width: 1023px) {
     header {
-        flex-direction: column;
+        display: flex;
+        flex-wrap: wrap;
         align-items: center;
-        text-align: center;
+        justify-content: space-between;
         padding: 15px;
+    }
+
+    .logo-left {
+        order: 1;
+    }
+
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        order: 2;
+    }
+
+    .hamburger span {
+        width: 25px;
+        height: 3px;
+        background-color: #022b60;
+        margin: 3px 0;
+        transition: 0.3s;
+        border-radius: 2px;
+    }
+
+    /* Rotate hamburger when checked */
+    #menu-toggle:checked ~ .hamburger span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    #menu-toggle:checked ~ .hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+
+    #menu-toggle:checked ~ .hamburger span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    nav {
+        order: 3;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        background-color: #e0e0e0;
+    }
+
+    /* Show nav when checkbox is checked */
+    #menu-toggle:checked ~ nav {
+        max-height: 400px;
+        transition: max-height 0.3s ease-in;
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 10px 0;
+        margin: 0;
+    }
+
+    nav ul li {
+        margin: 0;
+        text-align: center;
+    }
+
+    nav ul li a {
+        font-size: 16px;
+        display: block;
+        padding: 10px;
+    }
+
+    /* Close menu when clicking on a link */
+    nav ul li a:active {
+        --close-menu: #menu-toggle { checked: false; }
     }
 
     .logo {
@@ -84,22 +196,9 @@ a.active {
         height: 50px;
         margin: 0;
     }
-
-    nav ul {
-        flex-direction: column;
-        padding-top: 10px;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
-
-    nav ul li a {
-        font-size: 16px;
-    }
 }
 
-/* Styles for sections */
+/* ===== SECTIONS / MAIN CONTENT SECTIONS ===== */
 section {
     padding: 20px;
     background: white;
@@ -108,10 +207,20 @@ section {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* ===== RESPONSIVE SECTIONS / MAIN CONTENT SECTIONS FOR TABLETS AND MOBILE (max-width: 1023px) ===== */
+@media screen and (max-width: 1023px) {
+    section {
+        margin: 0 0 20px 0;
+        border-radius: 0;
+    }
+}
+
+/* ===== ABOUT SECTION / ABOUT ME TEXT FORMATTING ===== */
 #about > p {
     text-align: justify;
 }
 
+/* ===== HEADINGS / HEADING STYLES ===== */
 h1 {
     transform: rotate(5deg);
     text-align: center;
@@ -133,13 +242,58 @@ h3 {
     font-weight: 600;
 }
 
+/* ===== RESPONSIVE HEADINGS / HEADINGS FOR TABLETS AND MOBILE (max-width: 1023px) ===== */
+@media screen and (max-width: 1023px) { 
+    h1 {
+        transform: none;
+        text-align: center;
+        color: #5d307f;
+        font-size: 22px;
+        font-weight: 800;
+        text-shadow: 2px 2px #be9ef0;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 12px;
+    }
+}
+
+/* ===== LISTS / GENERAL LIST STYLES ===== */
 ul {
     list-style-type: square;
 }
 
-.experience-section{
+/* ===== EXPERIENCE SECTION / WORK EXPERIENCE ===== */
+.experience-section {
     margin-bottom: 40px;
 }
+
 .experience-section ul {
     padding-left: 20px;
     margin: 15px 20px;
@@ -152,6 +306,20 @@ ul {
     color: inherit;
 }
 
+/* ===== RESPONSIVE EXPERIENCE SECTION / EXPERIENCE SECTION FOR TABLETS AND MOBILE (max-width: 1023px) ===== */
+@media screen and (max-width: 1023px) {
+    .experience-section {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .experience-section {
+        font-size: 12px;
+    }
+}
+
+/* ===== JOB CONTAINER / JOB LISTING CARD ===== */
 .job-container {
     border: 2px solid #ccc;
     border-radius: 8px;
@@ -191,6 +359,31 @@ ul {
     margin-bottom: 8px;
 }
 
+/* ===== RESPONSIVE JOB TITLE / JOB TITLE FOR TABLETS AND MOBILE (max-width: 1023px) ===== */
+@media screen and (max-width: 1023px) {
+    .job-title {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .job-title {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .job-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .job-date {
+        margin-top: 8px;
+    }
+}
+
+/* ===== SKILLS SECTION / SKILLS CONTAINER ===== */
 .skills-container {
     display: flex;
     flex-wrap: wrap;
@@ -200,20 +393,39 @@ ul {
 }
 
 .skills-container li {
-    width: calc((100% / 3) - 10px);
+    width: calc((100% / 4) - 10px);
     list-style-type: square;
     text-align: left;
     margin-right: 10px;
 }
 
+/* ===== COURSES SECTION / COURSES LIST ===== */
 .courses-list {
     max-width: 600px;
     margin: 20px auto;
     padding-left: 20px;
 }
 
+/* ===== RESPONSIVE SKILLS / SKILLS LAYOUT FOR LARGE SCREENS (max-width: 1366px) ===== */
+@media screen and (max-width: 1366px) {
+    .skills-container li {
+        width: calc((100% / 3) - 10px);
+    }
+}
 
-@media (max-width: 1023px) {
+/* ===== RESPONSIVE SKILLS / SKILLS LAYOUT FOR MOBILE AND TABLET (max-width: 1023px) ===== */
+@media screen and (max-width: 1023px) {
+    .skills-container {
+        gap: 10px;
+    }
+  
+    .skills-container li {
+        width: calc(50% - 5px);
+        margin-right: 0;
+    }
+}
+
+@media screen and (max-width: 500px) {
     .skills-container {
         flex-direction: column;
         gap: 8px;
@@ -224,7 +436,7 @@ ul {
     }
 }
 
-/* Profile photo styles */
+/* ===== PROFILE PHOTO / PROFILE PICTURE STYLING ===== */
 .profile-photo {
     width: 600px;
     max-width: 100%;
@@ -235,13 +447,14 @@ ul {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 1023px) {
+/* ===== RESPONSIVE PROFILE PHOTO / PROFILE PICTURE FOR MOBILE AND TABLET (max-width: 1023px) ===== */
+@media screen and (max-width: 1023px) {
     .profile-photo {
         width: 90%;
     }
 }
 
-/* Social icons styles */
+/* ===== SOCIAL ICONS / SOCIAL MEDIA ICONS ===== */
 .social-icons {
     display: flex;
     justify-content: center;
@@ -276,7 +489,7 @@ ul {
     color: white;
 }
 
-/* Footer styles */
+/* ===== FOOTER / FOOTER SECTION ===== */
 footer {
     display: flex;
     justify-content: space-between;
@@ -291,6 +504,7 @@ footer p {
     padding-left: 20px;
 }
 
+/* ===== BACK TO TOP BUTTON / SCROLL TO TOP BUTTON ===== */
 #backToTop {
     padding: 8px 16px;
     font-size: 14px;
@@ -304,4 +518,20 @@ footer p {
 
 #backToTop:hover {
     background-color: #022b60;
+}
+
+/* ===== RESPONSIVE FOOTER / FOOTER SECTION FOR MOBILE AND TABLET (max-width: 1023px) ===== */
+@media screen and (max-width: 1023px) {
+   footer {
+        border-radius: 0;
+    }
+
+    footer p {
+        padding-left: 0;
+    }
+
+    #backToTop {
+        margin-right: 0;
+        font-size: 12px;
+    }
 }
