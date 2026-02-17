@@ -346,7 +346,8 @@ ul {
 
 .job-date {
     font-style: italic;
-    color: gray;
+    color: rgb(54, 54, 54);
+    font-weight: 600;
 }
 
 .job-description {
@@ -433,6 +434,36 @@ ul {
   
     .skills-container li {
         width: 100%;
+    }
+}
+
+/* ===== SKILLS SECTION / CUSTOM STYLING FOR SKILLS WRAPPER ===== */
+.skills-section {
+    margin: 20px 0;
+}
+
+.skills-section ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.skills-section li {
+    background-color: #d2f7fa;
+    padding: 8px 12px;
+    border: 2px solid #055c8b;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* ===== RESPONSIVE FOR SKILLS SECTION  ===== */
+@media screen and (max-width: 500px) {
+    .skills-section ul {
+        justify-content: flex-start;
     }
 }
 
