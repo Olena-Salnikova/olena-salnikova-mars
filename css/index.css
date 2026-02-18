@@ -106,6 +106,12 @@ a.active {
     transition: 0.3s;
     border-radius: 2px;
 }
+/* ===== RESPONSIVE NAVIGATION / NAVIGATION FOR LARGE SCREENS (max-width: 1200px) ===== */
+@media screen and (max-width: 1200px) {
+    nav ul li {
+        margin: 0 5px;
+    }
+}
 
 /* ===== RESPONSIVE HEADER WITH HAMBURGER / TABLET LAYOUT (max-width: 1023px) ===== */
 @media screen and (max-width: 1023px) {
@@ -263,6 +269,7 @@ h3 {
 
     p {
         font-size: 14px;
+        line-height: 1.4;
     }
 }
 
@@ -277,10 +284,6 @@ h3 {
 
     h3 {
         font-size: 16px;
-    }
-
-    p {
-        font-size: 12px;
     }
 }
 
@@ -310,12 +313,7 @@ ul {
 @media screen and (max-width: 1023px) {
     .experience-section {
         font-size: 14px;
-    }
-}
-
-@media screen and (max-width: 767px) {
-    .experience-section {
-        font-size: 12px;
+        line-height: 1.4;
     }
 }
 
@@ -465,6 +463,154 @@ ul {
     .skills-section ul {
         justify-content: flex-start;
     }
+}
+
+/* ===== LEAVE MESSAGE SECTION / LEAVE MESSAGE FORM ===== */
+#leave-message-form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#leave-message form label {
+  display: block;
+  margin: 12px 0 6px;
+  font-weight: 500;
+  color: #0d1e34;
+}
+
+#leave-message input[type="text"],
+#leave-message input[type="email"],
+#leave-message textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: 2px solid #055c8b;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+#leave-message input[type="text"]:focus,
+#leave-message input[type="email"]:focus,
+#leave-message textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+#leave-message textarea {
+  min-height: 80px;
+  resize: vertical;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+
+#leave-message button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  font-size: 18px;
+  background-color: #055c8b;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#leave-message button[type="submit"]:hover,
+#leave-message button[type="submit"]:focus {
+  background-color: #0056b3;
+}
+
+/* ===== RESPONSIVE LEAVE MESSAGE SECTION ===== */
+@media (max-width: 640px) {
+  #leave-message form label {
+    font-size: 14px;
+    margin: 14px 0 4px;
+  }
+  #leave-message input[type="text"],
+  #leave-message input[type="email"],
+  #leave-message textarea {
+    font-size: 14px;
+    padding: 12px;
+  }
+  #leave-message button[type="submit"] {
+    padding: 14px;
+    font-size: 14px;
+  }
+}
+
+/* ===== MESSAGES SECTION ===== */
+#messages ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#messages li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding: 16px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.1);
+  word-break: break-word;
+}
+
+#messages li a {
+  color: #0056b3;
+  font-weight: 600;
+  text-decoration: none;
+  margin-right: 14px;
+  transition: color 0.2s;
+}
+#messages li a:hover, #messages li a:focus {
+  color: #007bff;
+}
+
+#messages li span {
+  flex: 1;
+  color: #0d1e34;
+}
+
+#messages li button[type="button"] {
+  background: #e34f4f;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 16px;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+#messages li button[type="button"]:hover,
+#messages li button[type="button"]:focus {
+  background: #b30404;
+  box-shadow: 0 2px 6px rgba(227,79,79,0.12);
+}
+
+/* ===== RESPONSIVE MESSAGES SECTION ===== */
+@media (max-width: 640px) {
+  #messages li {
+    font-size: 14px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  #messages li button[type="button"] {
+    margin-left: 0;
+    margin-top: 5px;
+    width: 100%;
+  }
 }
 
 /* ===== PROFILE PHOTO / PROFILE PICTURE STYLING ===== */
