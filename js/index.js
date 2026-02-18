@@ -58,3 +58,49 @@ for (let i = 0; i < skills.length; i++) {
     skillsList.appendChild(skill);
 }
 
+// Create a form submit event listener
+// 1. Find the form by name attribute
+const messageForm = document.querySelector('form[name="leave_message"]');
+
+// 2. Add a handler for the form submission event
+messageForm.addEventListener("submit", function(event) {
+    // Stop the standard page refresh
+    event.preventDefault();
+
+    // 3. Get values ​​from form fields
+    const name = event.target.usersName.value;
+    const email = event.target.usersEmail.value;
+    const message = event.target.usersMessage.value;
+
+    // 4. Log data to the console (for verification)
+    console.log(`Name: ${name}, Email: ${email}, Message: ${message}`);
+
+    // 5. Find the section with messages and access <ul>
+    const messageSection = document.querySelector("#messages");
+    const messageList = messageSection.querySelector("ul");
+
+    // 6. Create a new li for the message
+    const newMessage = document.createElement("li");
+    // Form the HTML content of li: name as a mailto link and message in a span
+    newMessage.innerHTML = `<a href="mailto:${email}">${name}</a> <span>${message}</span>`;
+    
+    // 7. Create a delete button for each message
+    const removeButton = document.createElement("button");
+    removeButton.innerText = "remove";
+    removeButton.type = "button";
+
+    // 8. Add a handler to the button: remove the parent element (li) when clicked
+    removeButton.addEventListener("click", function() {
+        const entry = removeButton.parentNode;
+        entry.remove();
+    });
+
+    // 9. Add a button to li
+    newMessage.appendChild(removeButton);
+
+    // 10. Add a new li to the ul of the message list
+    messageList.appendChild(newMessage);
+
+    // 11. Clear the form after adding a message with reset() method
+    messageForm.reset();
+});
