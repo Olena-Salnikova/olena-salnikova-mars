@@ -7,7 +7,7 @@ html {
 /* ===== RESPONSIVE HTML / SCROLL PADDING FOR TABLETS AND MOBILE ===== */
 @media screen and (max-width: 1023px) {
     html {
-        scroll-padding-top: 300px;
+        scroll-padding-top: 340px;
     }
 }
 
@@ -76,11 +76,11 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #05418f;
-}
+    color: #055c8b;
+    background-color: #d2f7fa;
+    padding: 10px;
+    border-radius: 10px;
 
-a.active {
-    color: #034fc0;
 }
 
 /* ===== HAMBURGER MENU CHECKBOX / HIDDEN CHECKBOX FOR BURGER TOGGLE ===== */
@@ -221,6 +221,24 @@ section {
     }
 }
 
+/* ===== PROFILE PHOTO / PROFILE PICTURE STYLING ===== */
+.profile-photo {
+    width: 600px;
+    max-width: 100%;
+    height: auto;
+    margin: 30px auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== RESPONSIVE PROFILE PHOTO / PROFILE PICTURE FOR MOBILE AND TABLET (max-width: 1023px) ===== */
+@media screen and (max-width: 1023px) {
+    .profile-photo {
+        width: 90%;
+    }
+}
+
 /* ===== ABOUT SECTION / ABOUT ME TEXT FORMATTING ===== */
 #about > p {
     text-align: justify;
@@ -303,6 +321,7 @@ ul {
     list-style-type: square;
 }
 
+#projects ul li a,
 .experience-section li {
     text-align: left;
     margin-bottom: 8px;
@@ -311,6 +330,7 @@ ul {
 
 /* ===== RESPONSIVE EXPERIENCE SECTION / EXPERIENCE SECTION FOR TABLETS AND MOBILE (max-width: 1023px) ===== */
 @media screen and (max-width: 1023px) {
+    #projects ul,
     .experience-section {
         font-size: 14px;
         line-height: 1.4;
@@ -465,6 +485,41 @@ ul {
     }
 }
 
+/* ===== RESPONSIVE FOR PROJECT SECTION  ===== */
+#projects ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 20px;
+    margin: 15px 20px;
+    list-style-type: square;
+}
+#projects li {
+    width: calc((100% / 3) - 10px);
+    margin: 5px;
+}
+#projects li a {
+    text-decoration: none;
+    font-weight: 500;
+}
+#projects li a:hover {
+    color: #055c8b;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+/* ===== RESPONSIVE FOR PROJECT SECTION FOR LARGE SCREENS (max-width: 1366px) ===== */
+@media screen and (max-width: 1366px) {
+    #projects li {
+        width: calc((100% / 2) - 10px);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #projects li {
+        width: 100%;
+    }
+}
+
 /* ===== LEAVE MESSAGE SECTION / LEAVE MESSAGE FORM ===== */
 #leave-message-form {
   max-width: 600px;
@@ -525,7 +580,7 @@ ul {
 
 #leave-message button[type="submit"]:hover,
 #leave-message button[type="submit"]:focus {
-  background-color: #0056b3;
+  background-color: #0c60ba;
 }
 
 /* ===== RESPONSIVE LEAVE MESSAGE SECTION ===== */
@@ -613,24 +668,6 @@ ul {
   }
 }
 
-/* ===== PROFILE PHOTO / PROFILE PICTURE STYLING ===== */
-.profile-photo {
-    width: 600px;
-    max-width: 100%;
-    height: auto;
-    margin: 30px auto;
-    display: block;
-    border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-}
-
-/* ===== RESPONSIVE PROFILE PHOTO / PROFILE PICTURE FOR MOBILE AND TABLET (max-width: 1023px) ===== */
-@media screen and (max-width: 1023px) {
-    .profile-photo {
-        width: 90%;
-    }
-}
-
 /* ===== SOCIAL ICONS / SOCIAL MEDIA ICONS ===== */
 .social-icons {
     display: flex;
@@ -712,3 +749,4 @@ footer p {
         font-size: 12px;
     }
 }
+
