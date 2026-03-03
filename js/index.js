@@ -78,10 +78,12 @@ messageForm.addEventListener("submit", function(event) {
     // 5. Find the section with messages and access <ul>
     const messageSection = document.querySelector("#messages");
     const messageList = messageSection.querySelector("ul");
+    // --- Show the section if it is hidden
+    messageSection.style.display = "block";
 
     // 6. Create a new li for the message
     const newMessage = document.createElement("li");
-    // Form the HTML content of li: name as a mailto link and message in a span
+    // ---Form the HTML content of li: name as a mailto link and message in a span
     newMessage.innerHTML = `<a href="mailto:${email}">${name}</a> <span>${message}</span>`;
     
     // 7. Create a delete button for each message
@@ -98,9 +100,41 @@ messageForm.addEventListener("submit", function(event) {
     // 9. Add a button to li
     newMessage.appendChild(removeButton);
 
+
     // 10. Add a new li to the ul of the message list
     messageList.appendChild(newMessage);
+
+    // If there are no more messages after deletion, hide the section
+    removeButton.addEventListener("click", function() {
+        if (messageList.children.length === 0) {
+            messageSection.style.display = "none";
+        }
+    });
 
     // 11. Clear the form after adding a message with reset() method
     messageForm.reset();
 });
+
+
+// Fetching GitHub Repositories
+fetch("https://api.github.com/users/Olena-Salnikova/repos")
+    .then(response => response.json())
+    .then(repositories => {
+        console.log(repositories);
+
+        const projectSection = document.querySelector("#projects");// Select the projects section by id
+        const projectList = projectSection.querySelector("ul");    // Select the <ul> inside the projects section
+
+        for (let i = 0; i < repositories.length; i++) {
+            const project = document.createElement("li");          // Create a list item
+            const link = document.createElement("a");              // Create an anchor element
+            link.href = repositories[i].html_url;                  // Set anchor href to repository URL
+            link.innerText = repositories[i].name;                 // Set anchor text to repository name
+            link.target = "_blank";                                // Open the link in a new tab (optional)
+            project.appendChild(link);                             // Append the anchor to the list item
+            projectList.appendChild(project);                      // Append the list item to the project list
+        }
+    })
+    .catch(error =>
+        console.error("Error fetching repositories:", error)        // Error handling
+    );
